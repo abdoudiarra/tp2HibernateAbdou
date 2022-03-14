@@ -20,4 +20,17 @@ public class Lecteur extends Utilisateur{
     public double getSolde() {
         return solde;
     }
+
+    @Override
+    public void addBook(Documents document) {
+        super.addBook(document);
+    }
+
+    @Override
+    public String toString() {
+        return "Lecteur{" +
+                "solde=" + solde +
+                ", documentsList=" + documentsList +
+                '}';
+    }
 }

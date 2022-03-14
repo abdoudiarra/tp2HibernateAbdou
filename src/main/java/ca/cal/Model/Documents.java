@@ -25,6 +25,13 @@ public class Documents {
     @JoinColumn(name = "bibliotheque_id")
     private Bibliotheque bibliotheque;
 
+    @ManyToOne
+    @JoinColumn(name = "documents_id")
+    private Documents documents;
+
+
+
+
     public Documents(long id, String titre, String auteur, String editeur, int annee_de_publication, String genre_de_document, int joursDePret) {
         this.id = id;
         this.titre = titre;
@@ -64,5 +71,20 @@ public class Documents {
     }
     public void getBiblio(Bibliotheque biblio) {
         this.bibliotheque = biblio;
+    }
+
+    @Override
+    public String toString() {
+        return "Documents{" +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
+                ", auteur='" + auteur + '\'' +
+                ", editeur='" + editeur + '\'' +
+                ", annee_de_publication=" + annee_de_publication +
+                ", genre_de_document='" + genre_de_document + '\'' +
+                ", joursDePret=" + joursDePret +
+                ", bibliotheque=" + bibliotheque +
+                ", documents=" + documents +
+                '}';
     }
 }

@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,6 +19,8 @@ public class Utilisateur {
     private String lastName;
     private String adress;
 
+    @OneToMany(mappedBy = "documents", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    List<Documents> documentsList = new LinkedList<>();
 
     public Utilisateur(long id, String firstName, String lastName, String adress) {
         this.id = id;
@@ -27,6 +31,11 @@ public class Utilisateur {
 
     public long getId() {
         return id;
+    }
+
+    public void addBook(Documents document){
+        documentsList.add(document);
+        document.setDocuments(document);
     }
 
     public String getFirstName() {

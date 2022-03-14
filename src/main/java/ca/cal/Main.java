@@ -44,11 +44,12 @@ public class Main {
         System.out.println(dao.getBiblio(biblioId));
 
 //        System.out.println(dao.getDocuments("Titans"));
-        System.out.println(dao.getDocuments(2005));
+//        System.out.println(dao.getDocuments(2005));
 //        System.out.println(dao.getDocumentByAuthor("Rowling"));
 //        System.out.println(dao.getDocumentsByCategory("dvd"));
 
-        //        dao.addBookToEmprunts(book1Id, lecteur1Id);
+//        dao.addBookToEmprunts(book4Id, lecteur2Id, biblioId);
+//        System.out.println(dao.getLecteur(lecteur2Id));
 //        //Ajout de livres dans la bibliothèque
 //        dao.addBookToEmprunts(book5Id, lecteur2Id);
 //        //rechercher livre par : titre, auteur, année et catégorie. (titre doit pas etre exacte)

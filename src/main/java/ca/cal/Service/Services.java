@@ -62,4 +62,18 @@ public class Services {
     public List<Documents> getDocuments(int annee_de_publication) {
         return dao.getDocuments(annee_de_publication);
     }
+
+    public void addBookToEmprunts(long livreId, long lecteur1Id, long biblioId) {
+        var biblio = dao.getBiblio(biblioId);
+        var livre = dao.getLivre(livreId);
+        var lecteur = dao.getBiblio(lecteur1Id);
+
+        if(biblio.getDocumentsList().contains(livre)){
+            lecteur.addBook(livre);
+            dao.merge(biblio);
+            System.out.println("emprunté avec succès");
+        }else{
+            System.out.println("Ce document n'est pas disponible dans la bibliothèque");
+        }
+    }
 }

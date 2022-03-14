@@ -170,11 +170,4 @@ public class Tp2DaoJpaH2 {
         em.close();
         return  docs;
     }
-
-
-
-
-
-
-
 }
