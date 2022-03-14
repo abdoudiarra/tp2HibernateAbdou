@@ -13,6 +13,11 @@ public class Tp2DaoJpaH2 {
 
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2");
 
+
+    public List<Documents> docsEmpruntes(long id){
+        return getUtilisateur(id).getDocumentsList();
+    }
+
     public long createLecteur(long id, String prenom, String nom, String addresse, double solde) {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();

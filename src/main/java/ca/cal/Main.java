@@ -43,27 +43,9 @@ public class Main {
         dao.addBookToBibliotheque(book3Id,biblioId);
         System.out.println(dao.getBiblio(biblioId));
 
-//        System.out.println(dao.getDocuments("Titans"));
-//        System.out.println(dao.getDocuments(2005));
-//        System.out.println(dao.getDocumentByAuthor("Rowling"));
-//        System.out.println(dao.getDocumentsByCategory("dvd"));
+        //recherche dans les emprunts
+        dao.getEmprunts(lecteur1Id);
 
-//        dao.addBookToEmprunts(book4Id, lecteur2Id, biblioId);
-//        System.out.println(dao.getLecteur(lecteur2Id));
-//        //Ajout de livres dans la bibliothèque
-//        dao.addBookToEmprunts(book5Id, lecteur2Id);
-//        //rechercher livre par : titre, auteur, année et catégorie. (titre doit pas etre exacte)
-//
-//        //Titre
-//        dao.getBook("Bobby");
-//        dao.getBook("Titans");
-//        //auteur
-//        dao.getBook("Rowling");
-//        //annee
-//        dao.getBook(2015);
-//
-//        //Voir la liste des emprunts et les dates auxquelles il doit les retourner
-//        dao.getSavedBooks(client2);
-//        dao.getSavedBooks(client);
+
     }
 }

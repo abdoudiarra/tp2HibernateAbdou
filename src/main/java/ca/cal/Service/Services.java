@@ -76,4 +76,8 @@ public class Services {
             System.out.println("Ce document n'est pas disponible dans la bibliothèque");
         }
     }
+
+    public List<Documents> getEmprunts(long id){
+        return dao.docsEmpruntes(id);
+    }
 }
