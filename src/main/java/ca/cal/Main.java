@@ -15,14 +15,17 @@ public class Main {
         var lecteur2Id = dao.createLecteur(2,"Bob", "Léponge","Sous l'ocean",0);
 
         //Création de livres
-        var book1Id = dao.createBook("Bobby Pendragon", "McHale", 2002, "Roman");
-        var book2Id = dao.createBook("Harry Potter", "Rowling", 1999, "Roman");
-        var book3Id = dao.createBook("Les aventures de Harry", "Rowling", 2002, "Magazine");
-        var book4Id = dao.createBook("Attack On Titans", "Eren Yeager", 2015, "Roman");
-        var book5Id = dao.createBook("Teen Titans", "McH", 2020, "Roman");
+        var book1Id = dao.createBook(1, "Bobby Pendragon", "McHale", "random", 2002,"Roman",21);
+        var book2Id = dao.createBook(2, "Harry Potter", "Rowling", "jsp", 2004,"Roman",21);
+        var book3Id = dao.createBook(3, "Les aventures de Harry", "Rowling", "idk", 2004,"dvd",7);
+        var book4Id = dao.createBook(4, "Attack On Titans", "Eren Yeager", "mtl", 2005,"cd",14);
+        var book5Id = dao.createBook(5, "Teen Titans", "Marvel", "tr", 2009,"Roman",21);
 
         System.out.println(lecteur1Id);
         System.out.println(lecteur2Id);
+
+        System.out.println(book1Id);
+        System.out.println(book2Id);
         //Emprunt d'un document s'il en reste 1
 //        dao.addBookToBibliotheque(book1Id);
 //        dao.addBookToBibliotheque(book2Id);
