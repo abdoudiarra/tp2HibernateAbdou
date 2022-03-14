@@ -53,6 +53,9 @@ public class Services {
 
     public List<Documents> getDocumentByAuthor(String auteur) {
         return dao.getDocumentsByAuthor(auteur);
+    }
 
+    public List<Documents> getDocumentsByCategory(String categorie) {
+        return dao.getDocumentsByCategory(categorie);
     }
 }

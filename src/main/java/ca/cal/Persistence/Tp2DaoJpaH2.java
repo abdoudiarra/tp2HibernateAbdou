@@ -141,6 +141,23 @@ public class Tp2DaoJpaH2 {
         return  docs;
     }
 
+    public List<Documents> getDocumentsByCategory(String genre_de_document) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Documents> query = em.createQuery(
+                "select d from Documents d where d.genre_de_document like :genre_de_document"
+                , Documents.class);
+        query.setParameter("genre_de_document", "%" +genre_de_document+ "%");
+        final List<Documents> docs = query.getResultList();
+
+        em.getTransaction().commit();
+        em.close();
+        return  docs;
+    }
+
+
+
 
 
 
