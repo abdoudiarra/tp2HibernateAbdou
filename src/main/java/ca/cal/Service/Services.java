@@ -58,4 +58,8 @@ public class Services {
     public List<Documents> getDocumentsByCategory(String categorie) {
         return dao.getDocumentsByCategory(categorie);
     }
+
+    public List<Documents> getDocuments(int annee_de_publication) {
+        return dao.getDocuments(annee_de_publication);
+    }
 }

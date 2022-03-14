@@ -156,6 +156,21 @@ public class Tp2DaoJpaH2 {
         return  docs;
     }
 
+ public List<Documents> getDocuments(int annee_de_publication) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Documents> query = em.createQuery(
+                "select d from Documents d where d.annee_de_publication = :annee_de_publication"
+                , Documents.class);
+        query.setParameter("annee_de_publication", annee_de_publication);
+        final List<Documents> docs = query.getResultList();
+
+        em.getTransaction().commit();
+        em.close();
+        return  docs;
+    }
+
 
 
 
