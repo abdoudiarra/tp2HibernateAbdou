@@ -126,5 +126,23 @@ public class Tp2DaoJpaH2 {
         return  docs;
     }
 
+    public List<Documents> getDocumentsByAuthor(String auteur) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Documents> query = em.createQuery(
+                "select d from Documents d where d.auteur like :auteur"
+                , Documents.class);
+        query.setParameter("auteur", "%" +auteur+ "%");
+        final List<Documents> docs = query.getResultList();
+
+        em.getTransaction().commit();
+        em.close();
+        return  docs;
+    }
+
+
+
+
 
 }

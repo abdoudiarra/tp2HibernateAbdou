@@ -44,6 +44,7 @@ public class Main {
         System.out.println(dao.getBiblio(biblioId));
 
         System.out.println(dao.getDocuments("Titans"));
+        System.out.println(dao.getDocumentByAuthor("Rowling"));
 
         //        dao.addBookToEmprunts(book1Id, lecteur1Id);
 //        //Ajout de livres dans la bibliothèque
