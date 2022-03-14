@@ -3,10 +3,7 @@ package ca.cal.Model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -19,6 +16,7 @@ public class Utilisateur {
     private String firstName;
     private String lastName;
     private String adress;
+
 
     public Utilisateur(long id, String firstName, String lastName, String adress) {
         this.id = id;
@@ -42,4 +40,6 @@ public class Utilisateur {
     public String getAdress() {
         return adress;
     }
+
+
 }

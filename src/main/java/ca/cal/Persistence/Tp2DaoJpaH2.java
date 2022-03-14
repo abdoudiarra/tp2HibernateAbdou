@@ -8,19 +8,7 @@ import javax.persistence.Persistence;
 
 public class Tp2DaoJpaH2 {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2");
-
-//    public long createLecteur() {
-//    }
-//
-//    public long createBook() {
-//    }
-//
-//    public void addBookToEmprunts() {
-//    }
-//
-//    public void getBook(String name) {
-//    }
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2");
 
     public long createLecteur(long id, String prenom, String nom, String addresse, double solde) {
         final EntityManager em = emf.createEntityManager();
@@ -52,7 +40,7 @@ public class Tp2DaoJpaH2 {
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        final Bibliotheque bibliotheque = new Bibliotheque(id);
+        final Bibliotheque bibliotheque = new Bibliotheque(id,"montreal");
         em.merge(bibliotheque);
 
         em.getTransaction().commit();
@@ -73,4 +61,50 @@ public class Tp2DaoJpaH2 {
         return document;
     }
 
+    public Bibliotheque getBiblio(long id){
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final Bibliotheque biblio = em.find(Bibliotheque.class, id);
+
+        em.getTransaction().commit();
+        em.close();
+
+        return biblio;
+    }
+
+
+    public Utilisateur getUtilisateur(long id) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final Utilisateur lecteur = em.find(Lecteur.class, id);
+
+        em.getTransaction().commit();
+        em.close();
+
+        return lecteur;
+    }
+
+    public <T> void save(T t) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        em.persist(t);
+
+        em.getTransaction().commit();
+        em.close();
+
+    }
+
+    public <T> void merge(T t) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        em.merge(t);
+
+        em.getTransaction().commit();
+        em.close();
+
+    }
 }

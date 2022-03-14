@@ -10,6 +10,9 @@ public class Main {
 
         Services dao = new Services(new Tp2DaoJpaH2());
 
+        //Creer la bibliotheque
+        var biblioId = dao.createBibliotheque(1);
+
         //Creation de lecteurs
         var lecteur1Id = dao.createLecteur(1,"Abdou", "Diarra","32 rue des raisins",0);
         var lecteur2Id = dao.createLecteur(2,"Bob", "Léponge","Sous l'ocean",0);
@@ -21,17 +24,34 @@ public class Main {
         var book4Id = dao.createBook(4, "Attack On Titans", "Eren Yeager", "mtl", 2005,"cd",14);
         var book5Id = dao.createBook(5, "Teen Titans", "Marvel", "tr", 2009,"Roman",21);
 
-        //Creer la bibliotheque
-        var biblioId = dao.createBibliotheque(1);
 
-        System.out.println(biblioId);
+
+        //Tester le getBook
+        final var book = dao.getBook(book5Id);
+        System.out.println(book);
+
+        //Tester le getBiblio
+        final var biblio = dao.getBiblio(biblioId);
+        System.out.println(biblio);
+
+        //tester le getLecteur
+        System.out.println(dao.getLecteur(lecteur2Id).getFirstName());
+
+        //Ajouter un livre dans la bibliothèque
+        dao.addBookToBibliotheque(book5Id,biblioId);
+        System.out.println(dao.getBiblio(biblioId));
+
+
+//        System.out.println("id bx/iblio" + biblioId);
+
+
+//        System.out.println(biblioId);
         //Enregistrer les livres dans la bibliothèque
-//        dao.addBookToBibliotheque(book1Id);
-//        dao.addBookToBibliotheque(book2Id);
-//        dao.addBookToBibliotheque(book3Id);
-//        dao.addBookToBibliotheque(book4Id);
-//        dao.addBookToBibliotheque(book5Id);
-////
+//        dao.addBookToBibliotheque(book2Id,biblioId);
+//        dao.addBookToBibliotheque(book3Id,biblioId);
+//        dao.addBookToBibliotheque(book4Id,biblioId);
+//        dao.addBookToBibliotheque(book5Id,biblioId);
+//
 //        //Enregistrer un nouveau client
 //        dao.addBookToEmprunts(book1Id, lecteur1Id);
 //        //Ajout de livres dans la bibliothèque

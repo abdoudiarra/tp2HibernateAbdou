@@ -1,6 +1,9 @@
 package ca.cal.Service;
 
+import ca.cal.Model.Bibliotheque;
 import ca.cal.Model.Documents;
+import ca.cal.Model.Lecteur;
+import ca.cal.Model.Utilisateur;
 import ca.cal.Persistence.Tp2DaoJpaH2;
 
 import java.time.LocalDate;
@@ -31,20 +34,18 @@ public class Services {
         return dao.getLivre(id);
     }
 
-//    public void addBookToBibliotheque(long bookId, long bibliotheque) {
-//        var bookId = dao.getBook();
-//    }
+    public Utilisateur getLecteur(long id) {
+        return dao.getUtilisateur(id);
+    }
 
-//    public void addBookToEmprunts(long bookId, long lecteurId){
-//        return dao.addBookToEmprunts();
-//    }
-//
+    public void addBookToBibliotheque(long livreId, long biblioId) {
+        var livre = dao.getLivre(livreId);
+        var biblio = dao.getBiblio(biblioId);
+        biblio.addBook(livre);
+        dao.merge(biblio);
+    }
 
-//
-//    public void getBook(int anneePublication){
-//        return dao.getBook(anneePublication);
-//    }
-//
-//
-
+    public Bibliotheque getBiblio(long biblioId) {
+        return dao.getBiblio(biblioId);
+    }
 }

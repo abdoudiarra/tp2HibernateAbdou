@@ -3,10 +3,7 @@ package ca.cal.Model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -22,6 +19,11 @@ public class Documents {
     int annee_de_publication;
     String genre_de_document;
     int joursDePret;
+
+
+    @ManyToOne
+    @JoinColumn(name = "bibliotheque_id")
+    private Bibliotheque bibliotheque;
 
     public Documents(long id, String titre, String auteur, String editeur, int annee_de_publication, String genre_de_document, int joursDePret) {
         this.id = id;
@@ -59,5 +61,8 @@ public class Documents {
 
     public int getDate() {
         return joursDePret;
+    }
+    public void getBiblio(Bibliotheque biblio) {
+        this.bibliotheque = biblio;
     }
 }
