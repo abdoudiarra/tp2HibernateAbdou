@@ -5,6 +5,9 @@ import ca.cal.Model.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.swing.text.Document;
+import java.util.List;
 
 public class Tp2DaoJpaH2 {
 
@@ -107,4 +110,21 @@ public class Tp2DaoJpaH2 {
         em.close();
 
     }
+
+    public List<Documents> getDocuments(String titre) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Documents> query = em.createQuery(
+                "select d from Documents d where d.titre like :titre"
+                , Documents.class);
+        query.setParameter("titre", "%" +titre+ "%");
+        final List<Documents> docs = query.getResultList();
+
+        em.getTransaction().commit();
+        em.close();
+        return  docs;
+    }
+
+
 }

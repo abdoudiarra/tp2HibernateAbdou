@@ -39,21 +39,13 @@ public class Main {
 
         //Ajouter un livre dans la bibliothèque
         dao.addBookToBibliotheque(book5Id,biblioId);
+        dao.addBookToBibliotheque(book4Id,biblioId);
+        dao.addBookToBibliotheque(book3Id,biblioId);
         System.out.println(dao.getBiblio(biblioId));
 
+        System.out.println(dao.getDocuments("Titans"));
 
-//        System.out.println("id bx/iblio" + biblioId);
-
-
-//        System.out.println(biblioId);
-        //Enregistrer les livres dans la bibliothèque
-//        dao.addBookToBibliotheque(book2Id,biblioId);
-//        dao.addBookToBibliotheque(book3Id,biblioId);
-//        dao.addBookToBibliotheque(book4Id,biblioId);
-//        dao.addBookToBibliotheque(book5Id,biblioId);
-//
-//        //Enregistrer un nouveau client
-//        dao.addBookToEmprunts(book1Id, lecteur1Id);
+        //        dao.addBookToEmprunts(book1Id, lecteur1Id);
 //        //Ajout de livres dans la bibliothèque
 //        dao.addBookToEmprunts(book5Id, lecteur2Id);
 //        //rechercher livre par : titre, auteur, année et catégorie. (titre doit pas etre exacte)
