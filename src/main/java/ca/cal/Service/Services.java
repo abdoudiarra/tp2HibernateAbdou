@@ -21,6 +21,12 @@ public class Services {
         return dao.createBook(id,titre,auteur,editeur,annee_de_publication,genre_de_document, joursDePrets);
     }
 
+    public long createBibliotheque(long id) {
+        return dao.createBibliotheque(id);
+    }
+
+
+
     public Documents getBook(long id) {
         return dao.getLivre(id);
     }

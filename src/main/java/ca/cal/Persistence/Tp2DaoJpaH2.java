@@ -1,14 +1,10 @@
 package ca.cal.Persistence;
 
-import ca.cal.Model.Documents;
-import ca.cal.Model.Lecteur;
-import ca.cal.Model.Livre;
-import ca.cal.Model.Utilisateur;
+import ca.cal.Model.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.swing.text.Document;
 
 public class Tp2DaoJpaH2 {
 
@@ -52,6 +48,19 @@ public class Tp2DaoJpaH2 {
         return livre.getId();
     }
 
+    public long createBibliotheque(long id) {
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final Bibliotheque bibliotheque = new Bibliotheque(id);
+        em.merge(bibliotheque);
+
+        em.getTransaction().commit();
+        em.close();
+
+        return bibliotheque.getId();
+    }
+
     public Documents getLivre(long id){
         final EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -63,4 +72,5 @@ public class Tp2DaoJpaH2 {
 
         return document;
     }
+
 }

@@ -21,22 +21,17 @@ public class Main {
         var book4Id = dao.createBook(4, "Attack On Titans", "Eren Yeager", "mtl", 2005,"cd",14);
         var book5Id = dao.createBook(5, "Teen Titans", "Marvel", "tr", 2009,"Roman",21);
 
+        //Creer la bibliotheque
+        var biblioId = dao.createBibliotheque(1);
 
-
-        System.out.println(lecteur1Id);
-        System.out.println(lecteur2Id);
-
-        System.out.println(book1Id);
-        System.out.println(book2Id);
-
-        System.out.println(dao.getBook(3).getAuteur());
+        System.out.println(biblioId);
         //Enregistrer les livres dans la bibliothèque
 //        dao.addBookToBibliotheque(book1Id);
 //        dao.addBookToBibliotheque(book2Id);
 //        dao.addBookToBibliotheque(book3Id);
 //        dao.addBookToBibliotheque(book4Id);
 //        dao.addBookToBibliotheque(book5Id);
-//
+////
 //        //Enregistrer un nouveau client
 //        dao.addBookToEmprunts(book1Id, lecteur1Id);
 //        //Ajout de livres dans la bibliothèque
