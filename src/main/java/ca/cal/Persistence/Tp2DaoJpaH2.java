@@ -51,4 +51,16 @@ public class Tp2DaoJpaH2 {
 
         return livre.getId();
     }
+
+    public Documents getLivre(long id){
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final Documents document = em.find(Documents.class, id);
+
+        em.getTransaction().commit();
+        em.close();
+
+        return document;
+    }
 }
